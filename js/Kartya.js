@@ -10,15 +10,23 @@ class Kartya {
         szuloElem.append(txt);
         this.#divElem = szuloElem.children("div:last-child");
         this.#imgElem = this.#divElem.children("img:last-child");
+        this.#divElem.on("click", () => {
+            this.setKep(this.#adat);
+            this.trigger();
+        });
     }
 
     getAdat(){
         return this.#adat;
     }
 
+    setKep(kep){
+        this.#imgElem.attr("src",kep);
+    }
+
     trigger(){
-        const ev = new CustomEvent("trigger", {detail: this.#adat});
-        dispatchEvent(ev);
+        const ev = new CustomEvent("fordit", {detail: this.#adat});
+        window.dispatchEvent(ev);
     }
 }
 
