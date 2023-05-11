@@ -7,8 +7,10 @@ class Jatekter {
     constructor (kepekLista) {
         this.#kepekLista = kepekLista;
         let szuloElem = $("main");
-        new Kartya(this.#kepekLista, szuloElem);
-
+        for (let index = 0; index < this.#kepekLista.length; index++) {
+            let k = new Kartya(this.#kepekLista[index], szuloElem);
+        }
+       
     }
 }
 
